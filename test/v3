@@ -35,7 +35,7 @@ testDetect_jdk11_0_4() {
 }
 
 test_get_jdk_cache_id() {
-  assertEquals "$(get_jdk_cache_id "https://buildpacks.oss-accelerate.aliyuncs.com/jvm/jdk/heroku-18/openjdk1.8.0_222.tar.gz")" "6791478b25aa569027e4b4e200b94271"
+  assertEquals "$(get_jdk_cache_id "http://buildpacks.drycc.cc/jvm/jdk/heroku-18/openjdk1.8.0_222.tar.gz")" "6791478b25aa569027e4b4e200b94271"
 }
 
 test_get_jdk_cache_id_date() {
@@ -75,7 +75,7 @@ test_build_jdk_11() {
 
 test_install_jdk_valid() {
   export HEROKU_GPG_VALIDATION=1
-  capture install_jdk "https://buildpacks.oss-accelerate.aliyuncs.com/jvm/jdk/heroku-18/openjdk11.0.4.tar.gz" "$(mktemp -d)" "${BUILDPACK_HOME}"
+  capture install_jdk "http://buildpacks.drycc.cc/jvm/jdk/heroku-18/openjdk11.0.4.tar.gz" "$(mktemp -d)" "${BUILDPACK_HOME}"
   assertCapturedSuccess
   unset HEROKU_GPG_VALIDATION
 }
@@ -86,7 +86,7 @@ test_install_jdk_invalid() {
   key="$(mktemp)"
   curl -sf -o "${key}" -L "https://www.php.net/distributions/php-keyring.gpg"
   export HEROKU_GPG_VALIDATION=1
-  capture install_jdk "https://buildpacks.oss-accelerate.aliyuncs.com/jvm/jdk/heroku-18/openjdk11.0.4.tar.gz" "$(mktemp -d)" "${BUILDPACK_HOME}" "${key}"
+  capture install_jdk "http://buildpacks.drycc.cc/jvm/jdk/heroku-18/openjdk11.0.4.tar.gz" "$(mktemp -d)" "${BUILDPACK_HOME}" "${key}"
   assertCapturedError " !     ERROR: Invalid GPG signature!"
   unset HEROKU_GPG_VALIDATION
 }

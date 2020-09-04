@@ -7,9 +7,9 @@
 # https://github.com/ryanbrainard/heroku-buildpack-testrunner/blob/master/lib/test_utils.sh
 
 installToolbox() {
-  curl -o "/usr/local/bin/jq" -Ls "https://buildpacks.oss-accelerate.aliyuncs.com/common/tools/jq" &&
+  curl -o "/usr/local/bin/jq" -Ls "http://buildpacks.drycc.cc/github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64" &&
     chmod +x "/usr/local/bin/jq"
-  curl -o "/usr/local/bin/yj" -Ls "https://buildpacks.oss-accelerate.aliyuncs.com/common/tools/yj" &&
+  curl -o "/usr/local/bin/yj" -Ls "http://buildpacks.drycc.cc/github.com/sclevine/yj/releases/download/v2.0/yj-linux" &&
     chmod +x "/usr/local/bin/yj"
 }
 

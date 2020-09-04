@@ -16,7 +16,7 @@ DEFAULT_JDK_11_VERSION="11.0.8"
 DEFAULT_JDK_12_VERSION="12.0.2"
 DEFAULT_JDK_13_VERSION="13.0.4"
 DEFAULT_JDK_14_VERSION="14.0.2"
-DEFAULT_JDK_BASE_URL="https://buildpacks.oss-accelerate.aliyuncs.com/jvm/jdk/${STACK:-"heroku-18"}"
+DEFAULT_JDK_BASE_URL="http://buildpacks.drycc.cc/jvm/jdk/${STACK:-"heroku-18"}"
 JDK_BASE_URL=${JDK_BASE_URL:-$DEFAULT_JDK_BASE_URL}
 
 get_jdk_version() {
