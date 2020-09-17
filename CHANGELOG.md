@@ -2,6 +2,10 @@
 
 ## Main
 
+## v107
+
+* Add support for JDK 15
+
 ## v106
 
 * JDBC_DATABASE_URL query parameters are now alphabetically ordered.
