@@ -6,19 +6,28 @@
 STACK="${STACK:-$CNB_STACK_ID}"
 DEFAULT_JDK_VERSION="1.8"
 # shellcheck disable=SC2034
-DEFAULT_JDK_1_7_VERSION="1.7.0_272"
+DEFAULT_JDK_1_7_VERSION="1.7.0_282"
 # shellcheck disable=SC2034
-DEFAULT_JDK_1_8_VERSION="1.8.0_265"
+DEFAULT_JDK_1_8_VERSION="1.8.0_272"
 # shellcheck disable=SC2034
 DEFAULT_JDK_1_9_VERSION="9.0.4"
 DEFAULT_JDK_10_VERSION="10.0.2"
-DEFAULT_JDK_11_VERSION="11.0.8"
+DEFAULT_JDK_11_VERSION="11.0.9"
 DEFAULT_JDK_12_VERSION="12.0.2"
-DEFAULT_JDK_13_VERSION="13.0.4"
+DEFAULT_JDK_13_VERSION="13.0.5"
 DEFAULT_JDK_14_VERSION="14.0.2"
-DEFAULT_JDK_15_VERSION="15.0.0"
-DEFAULT_JDK_BASE_URL="https://buildpacks.drycc.cc/jvm/jdk/${STACK:-"heroku-18"}"
-JDK_BASE_URL=${JDK_BASE_URL:-$DEFAULT_JDK_BASE_URL}
+DEFAULT_JDK_15_VERSION="15.0.1"
+
+JVM_BUILDPACK_ASSETS_BASE_URL="https://buildpacks.drycc.cc/jvm"
+if [[ -n "${JDK_BASE_URL}" ]]; then
+  # Support for setting JDK_BASE_URL had the issue that it has to contain the stack name. This makes it hard to
+  # override the bucket for testing with staging binaries by using the existing JVM buildpack integration tests that
+  # cover all stacks. We will remove support for it in October 2021.
+  warning_inline "Support for the JDK_BASE_URL environment variable is deprecated and will be removed October 2021!"
+else
+  JVM_BUILDPACK_ASSETS_BASE_URL="${JVM_BUILDPACK_ASSETS_BASE_URL:-"https://lang-jvm.s3.amazonaws.com"}"
+  JDK_BASE_URL="${JVM_BUILDPACK_ASSETS_BASE_URL%/}/jdk/${STACK:-"heroku-18"}"
+fi
 
 get_jdk_version() {
   local appDir="${1:?}"

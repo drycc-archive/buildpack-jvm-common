@@ -2,7 +2,22 @@
 
 ## Main
 
-## V108
+## v111
+
+* heroku-20 support for CNB
+* Fix typos
+
+## v110
+
+* Add support for JVM_BUILDPACK_ASSETS_BASE_URL environment variable (#179)
+* Deprecate support for JDK_BASE_URL environment variable (#179)
+* Upgrade default JDKs to 15.0.1, 13.0.5, 11.0.9, 8u272 and 7u282 (#177)
+
+## v109
+
+* Add support for heroku-20 stack
+
+## v108
 
 * Upgrade default JDK to 8u265
 
