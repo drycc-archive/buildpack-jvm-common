@@ -2,6 +2,26 @@
 
 ## Main
 
+## v116
+
+* Upgrade default JDKs to 15.0.2, 13.0.6, 11.0.10, 8u282 and 7u292
+
+## v115
+
+* Upgrade default JDKs to 13.0.5.1 and 11.0.9.1
+
+## v114
+
+* Install certs and profile scripts for JRE from CNB
+
+## v113
+
+* Upgrade CNB API compatibility version to 0.4
+
+## v112
+
+* Upgrade default JDKs to 8u275 and 7u285
+
 ## v111
 
 * heroku-20 support for CNB
